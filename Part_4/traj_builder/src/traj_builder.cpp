@@ -405,6 +405,52 @@ void TrajBuilder::build_triangular_spin_traj(geometry_msgs::PoseStamped start_po
 //compute trajectory corresponding to applying max prudent decel to halt
 void TrajBuilder::build_braking_traj(geometry_msgs::PoseStamped start_pose,
         std::vector<nav_msgs::Odometry> &vec_of_states) {
+	
+	double x_start = start_pose.pose.position.x;
+    double y_start = start_pose.pose.position.y;
+    double speed_des = vec_of_states.back().twist.twist.linear.x;
+    
+    nav_msgs::Odometry des_state;
+    des_state.header = start_pose.header; //really, want to copy the frame_id
+    des_state.pose.pose = start_pose.pose; //start from here
+    des_state.twist.twist = halt_twist_; // insist on starting from rest
+    vec_of_states.back().twist.twist.linear.x = speed_des;
+    
+    double t_decel = speed_des / accel_max_;
+    int npts_ramp = round(t_decel / dt_);
+    double x_des = x_start; //start from here
+    double y_des = y_start;
+    
+   
+    //double t_ramp = sqrt(trip_len / accel_max_);
+    //double v_peak = accel_max_*t_ramp; // could consider special cases for reverse 
+    //double d_vel = alpha_max_*dt_; // incremental velocity changes for ramp-up
+
+
+
+    des_state.twist.twist.angular.z = 0.0; //omega_des; will not change
+    double t = 0.0;
+	
+	// use the accel_max_ to decellerate to stopping
+	
+	vec_of_states.clear();
+	vec_of_states.push_back(des_state);
+    //ramp down:
+    for (int i = 0; i < npts_ramp; i++) {
+        speed_des -= accel_max_*dt_; //Euler one-step integration
+        des_state.twist.twist.linear.x = speed_des;
+        x_des += speed_des * dt_; // * cos(psi_des); //Euler one-step integration
+        y_des += speed_des * dt_; // * sin(psi_des); //Euler one-step integration        
+        des_state.pose.pose.position.x = x_des;
+        des_state.pose.pose.position.y = y_des;
+        vec_of_states.push_back(des_state);
+    }
+    //make sure the last state is precisely where requested, and at rest:
+
+    //but final orientation will follow from point-and-go direction
+    //des_state.pose.pose.orientation = convertPlanarPsi2Quaternion(psi_des);
+    des_state.twist.twist = halt_twist_; // insist on starting from rest
+    vec_of_states.push_back(des_state);
     //FINISH ME!
 
 }
