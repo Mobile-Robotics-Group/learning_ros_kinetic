@@ -11,7 +11,7 @@ nav_msgs::Odometry g_odom; //odom is not actually used in this code, but could b
 //some "magic" (tunable) numbers
 //define a radius within which we want to be near to a wall on the left
 const double WALL_FOLLOW_RADIUS = 0.35;
-const double RADIUS_LEFT_TURN = 0.3;
+const double RADIUS_LEFT_TURN = 0.2;
 
 //some timing constants
 const double SPEED = 0.6; //0.3; // m/s speed command

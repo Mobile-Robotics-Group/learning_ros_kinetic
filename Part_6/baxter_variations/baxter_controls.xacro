@@ -1,0 +1,182 @@
+<?xml version="1.0" ?>
+  <robot name="baxter_controls" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <gazebo>
+     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+       <robotNamespace>/baxter</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+     </plugin>
+  </gazebo>
+  
+  <transmission name="tran_right_e0">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_e0">
+      <!--hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface-->
+       <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_right_e0">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>      
+    </actuator>
+  </transmission>
+  
+  <transmission name="tran_right_e1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_e1">
+      <!--hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface-->
+       <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_right_e1">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>      
+    </actuator>
+  </transmission>
+  
+    <transmission name="tran_right_s0">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_s0">
+      <!--hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface-->
+       <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_right_s0">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>      
+    </actuator>
+  </transmission>
+  
+  <transmission name="tran_right_s1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_s1">
+      <!--hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface-->
+       <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_right_s1">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>      
+    </actuator>
+  </transmission>
+  
+    <transmission name="tran_right_w0">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_w0">
+      <!--hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface-->
+       <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_right_w0">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>      
+    </actuator>
+  </transmission>
+  
+  <transmission name="tran_right_w1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_w1">
+      <!--hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface-->
+       <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_right_w1">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>      
+    </actuator>
+  </transmission>
+  
+    <transmission name="tran_right_w2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="right_w2">
+      <!--hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface-->
+       <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_right_w2">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>      
+    </actuator>
+  </transmission>
+  
+  <transmission name="tran_left_e0">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_e0">
+      <!--hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface-->
+       <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_left_e0">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>      
+    </actuator>
+  </transmission>
+  
+  <transmission name="tran_left_e1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_e1">
+      <!--hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface-->
+       <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_left_e1">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>      
+    </actuator>
+  </transmission>
+  
+    <transmission name="tran_left_s0">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_s0">
+      <!--hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface-->
+       <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_left_s0">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>      
+    </actuator>
+  </transmission>
+  
+  <transmission name="tran_left_s1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_s1">
+      <!--hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface-->
+       <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_left_s1">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>      
+    </actuator>
+  </transmission>
+  
+    <transmission name="tran_left_w0">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_w0">
+      <!--hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface-->
+       <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_left_w0">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>      
+    </actuator>
+  </transmission>
+  
+  <transmission name="tran_left_w1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_w1">
+      <!--hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface-->
+       <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_left_w1">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>      
+    </actuator>
+  </transmission>
+  
+    <transmission name="tran_left_w2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="left_w2">
+      <!--hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface-->
+       <hardwareInterface>PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_left_w2">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>PositionJointInterface</hardwareInterface>      
+    </actuator>
+  </transmission>
+  
+  
+  
+
+</robot>
